@@ -1,9 +1,38 @@
 package com.esiea.projet4a.injection
 
+import android.content.Context
+import androidx.room.Room
 import com.esiea.projet4a.MainViewModel
+import com.esiea.projet4a.data.local.AppDatabase
+import com.esiea.projet4a.data.local.DatabaseDao
+import com.esiea.projet4a.data.repository.UserRepository
+import com.esiea.projet4a.domain.UseCase.CreateUserUseCase
+import com.esiea.projet4a.domain.UseCase.GetUserUseCase
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-val presentaionModule = module  {
-    factory { MainViewModel() }
+val presentationModule = module  {
+    factory { MainViewModel(get(),get()) }
+}
+
+val domainModule= module {
+    factory { CreateUserUseCase(get()) }
+    factory { GetUserUseCase(get()) }
+}
+
+val dataModule = module {
+    single {  UserRepository(get()) }
+    single { createDataBase(androidContext())}
+}
+
+fun createDataBase(context: Context): DatabaseDao {
+
+    val appDatabaseDao :AppDatabase = Room.databaseBuilder(
+        context,
+        AppDatabase::class.java, "database-name"
+    ).build()
+    return appDatabaseDao.databaseDao()
+
+
 
 }
