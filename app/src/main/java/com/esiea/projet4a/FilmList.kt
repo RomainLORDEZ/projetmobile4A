@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.esiea.projet4a.Adapter.FilmListAdapter
 import com.esiea.projet4a.Common.Common
-import com.esiea.projet4a.Common.ItemOfDecoration
+import com.esiea.projet4a.Common.ItemOffsetDecoration
 import com.esiea.projet4a.data.Retrofit.IFilmList
 import com.esiea.projet4a.data.Retrofit.RetrofitClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_film_list.*
 
 class FilmList : Fragment() {
 
     internal var compositeDisposable = CompositeDisposable()
     internal var iFilmList:IFilmList
+    internal lateinit var film_recyclerview : RecyclerView
 
     init{
         val retrofit =RetrofitClient.instance
@@ -38,7 +39,7 @@ class FilmList : Fragment() {
 
         film_recyclerview.setHasFixedSize(true)
         film_recyclerview.layoutManager = GridLayoutManager(activity,2)
-        val itemDecoration = ItemOfDecoration(activity!!,R.dimen.spacing)
+        val itemDecoration = ItemOffsetDecoration(requireActivity(),R.dimen.spacing)
         film_recyclerview.addItemDecoration(itemDecoration)
 
         fetchData()
@@ -47,15 +48,15 @@ class FilmList : Fragment() {
     }
 
     private fun fetchData() {
-        compositeDisposable.add(iFilmList.listfilm)
+        compositeDisposable.add(iFilmList.listfilm
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{ filmDex ->
-                Common.filmList = filmDex.film!!
-                val adapter = FilmListAdapter(activity!!,Common.filmList)
+            .subscribe { filmDex ->
+                Common.filmList = filmDex.movy!!
+                val adapter = FilmListAdapter(requireActivity(), Common.filmList)
 
                 film_recyclerview.adapter = adapter
-            }
+            })
         
     }
 

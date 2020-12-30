@@ -4,5 +4,5 @@ class Netflixou {
     /*
     public List<Movy> movies { get; set; }
     */
-    var movie:List<Movy>? = null
+    var movy:List<Movy>? = null
 }

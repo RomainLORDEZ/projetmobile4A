@@ -11,7 +11,7 @@ object RetrofitClient {
     get(){
         if(ourInstance == null)
             ourInstance= Retrofit.Builder()
-                .baseUrl("/*url base de donner*/")
+                .baseUrl("https://raw.githubusercontent.com/RomainLORDEZ/projetmobile4A/master/")
                 .addConverterFactory((GsonConverterFactory.create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esiea.projet4a.domain.UseCase.CreateUserUseCase
 import com.esiea.projet4a.domain.UseCase.GetUserUseCase
+import com.esiea.projet4a.domain.entity.User
 import com.esiea.projet4a.presentation.main.LoginError
 import com.esiea.projet4a.presentation.main.LoginStatus
 import com.esiea.projet4a.presentation.main.LoginSuccess
@@ -33,7 +34,11 @@ class MainViewModel(
                 loginLiveData.value = loginStatus
             }
 
-
+        }
+    }
+    fun onClickedCreateaccount(emailUser: String, password: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+             createUserUseCase.invoke(User(emailUser))
 
 
         }
