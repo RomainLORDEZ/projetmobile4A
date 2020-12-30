@@ -6,17 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.esiea.projet4a.FilmList
 import com.esiea.projet4a.R
 import com.esiea.projet4a.data.Model.Movy
-import kotlinx.android.synthetic.main.film_list_items.view.*
 
 
-class FilmListAdapter(internal var context: Context,
-                      internal var filmList:List<Movy>) :RecyclerView.Adapter<FilmListAdapter.MyViewHolder>() {
+class FilmListAdapter(
+    private var context: Context,
+    private var filmList:List<Movy>) :RecyclerView.Adapter<FilmListAdapter.MyViewHolder>() {
 
 
     inner class MyViewHolder (itemView: View):RecyclerView.ViewHolder(itemView){

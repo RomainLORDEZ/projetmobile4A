@@ -10,7 +10,6 @@ class FilmActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film)
 
-        toolbar.setTitle("tous les films")
-        setSupportActionBar(toolbar)
+        toolbar.title = "tous les films"
     }
 }

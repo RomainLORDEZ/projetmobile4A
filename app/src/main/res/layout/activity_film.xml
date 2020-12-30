@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"/>
 
     <fragment
-        android:name="com.esiea.projet4a.FilmList"
+        android:name="com.esiea.projet4a.presentation.film.FilmListFragment"
         android:id="@+id/list_pokemon_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
