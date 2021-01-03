@@ -26,11 +26,11 @@ https://github.com/RomainLORDEZ/projetmobile4A
 
 
 ### Première écran
-*La page de login
+* La page de login
 <img src="https://github.com/RomainLORDEZ/projetmobile4A/blob/master/images/capturepopup%20(1).PNG" width="360" height="250" />
 
-*L'email est enregistré dans la base de données
-*Ouverture d'une fenetre si l'email est faux 
+* L'email est enregistré dans la base de données
+* Ouverture d'une fenetre si l'email est faux 
 <img src="https://github.com/RomainLORDEZ/projetmobile4A/blob/master/images/capturepopup%20(2).PNG" width="300" height="500" />
 
 
