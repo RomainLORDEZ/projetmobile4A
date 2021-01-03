@@ -13,7 +13,7 @@ Cette application affiche des films avec le genre et les acteurs et utilise une 
 * Installation du logiciel Android Studio (disponible sur Mac, Linux et Windows)
 * Récupérer le programme grâce au lien Github suivant:
 ```
-https://github.com/Rosutovein/Projet3A.git //////a changer //////
+https://github.com/RomainLORDEZ/projetmobile4A
 ```
 
 ## Consignes respectées:
